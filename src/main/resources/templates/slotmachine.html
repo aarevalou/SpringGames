@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/slotmachine/styles.css}" />
+    <title>Tragamonedas</title>
+</head>
+<body>
+<div class="container">
+    <span th:text="${player?.username}" id="player-name" style="display: none;"></span>
+    <div class="top-left">
+        <img src="/img/slotmachine/icons/image 2.png" alt="Moneda">
+        <span id="change-count">5</span>
+        <img src="/img/slotmachine/icons/image 7.png" alt="Cambiar">
+        <span id="coin-count">1000</span>
+    </div>
+    <div class="top-right">
+        <img src="/img/slotmachine/buttons/Group 11.png" alt="Pausa">
+    </div>
+    <div class="slotmachine-img">
+        <img src="/img/slotmachine/main/Group 14.png" alt="Imagen Central">
+        <div class="additional-images">
+            <div class="additional-image" id="image1"></div>
+            <div class="additional-image" id="image2"></div>
+            <div class="additional-image" id="image3"></div>
+        </div>
+        <div class="bar"></div>
+        <div class="overlay-text" id="overlay-text"></div>
+        <div class="energy-text" id="energy-life">
+            <p>50/50</p>
+        </div>
+    </div>
+    <div class="bottom-center">
+        <img src="/img/slotmachine/buttons/Group 4.png" alt="Spin" id="spin-button">
+    </div>
+</div>
+
+<div class="overlay" id="lose-overlay">
+    <div class="overlay-content">
+        <h2>Perdiste, <span th:text="${player?.username}"></span></h2>
+        <p>Puntuación: <span id="final-change-count">0</span></p>
+        <p>Jugadas: <span id="final-coin-count">0</span></p>
+        <button id="restart-button">Reiniciar</button>
+        <button id="exit-button">Salir</button>
+    </div>
+</div>
+
+<script th:src="@{/js/slotmachine/script.js}"></script>
+</body>
+</html>
